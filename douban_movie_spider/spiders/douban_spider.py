@@ -10,15 +10,15 @@ class DoubanMovieTop250Spider(Spider):
     }
 
     def start_requests(self):
-        url = 'https://movie.douban.com/top250'
+        url = 'https://book.douban.com/top250?icn=index-book250-all'
         yield Request(url, headers=self.headers)
 
     def parse(self, response):
         item = DoubanMovieSpiderItem()
-        movies = response.xpath('//ol[@class="grid_view"]/li')
-        for movie in movies:
-            item['ranking'] = movie.xpath('.//div[@class="pic"]/em/text()').extract()[0]
-            item['movie_name'] = movie.xpath('.//div[@class="hd"]/a/span[1]/text()').extract()[0]
-            item['score'] = movie.xpath('.//div[@class="star"]/span[@class="rating_num"]/text()').extract()[0]
-            item['score_num'] = movie.xpath('.//div[@class="star"]/span/text()').re(ur'(\d+)人评价')[0]
+        books = response.xpath('//div[@class="indent"]/table')
+        for book in books:
+            item['ranking'] = book.xpath('.//div[@class="pic"]/em/text()').extract()[0]
+            item['movie_name'] = book.xpath('.//div[@class="hd"]/a/span[1]/text()').extract()[0]
+            item['score'] = book.xpath('.//div[@class="star"]/span[@class="rating_num"]/text()').extract()[0]
+            item['score_num'] = book.xpath('.//div[@class="star"]/span/text()').re(ur'(\d+)人评价')[0]
             yield item
