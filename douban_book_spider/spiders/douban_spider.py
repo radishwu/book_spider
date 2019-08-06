@@ -16,15 +16,6 @@ class DoubanBookTop250Spider(Spider):
     }
 
     keys = ['作者:', '出版社:', '原作名:', '译者:', '出版年:', '定价:', 'ISBN:']
-    infoDic = {
-        'author': '作者:',
-        'press': '出版社:',
-        'original_name': '原作名:',
-        'translator': '译者:',
-        'publication_time': '出版年:',
-        'pricing': '定价:',
-        'isbn': 'ISBN:'
-    }
     infoDic1 = {
         '作者:': 'author',
         '出版社:': 'press',
