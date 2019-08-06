@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for douban_movie_spider project
+# Scrapy settings for douban_book_spider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'douban_movie_spider'
+BOT_NAME = 'douban_book_spider'
 
-SPIDER_MODULES = ['douban_movie_spider.spiders']
-NEWSPIDER_MODULE = 'douban_movie_spider.spiders'
+SPIDER_MODULES = ['douban_book_spider.spiders']
+NEWSPIDER_MODULE = 'douban_book_spider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'douban_movie_spider (+http://www.yourdomain.com)'
+#USER_AGENT = 'douban_book_spider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'douban_movie_spider.middlewares.DoubanMovieSpiderSpiderMiddleware': 543,
+#    'douban_book_spider.middlewares.DoubanMovieSpiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'douban_movie_spider.middlewares.DoubanMovieSpiderDownloaderMiddleware': 543,
+#    'douban_book_spider.middlewares.DoubanMovieSpiderDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'douban_movie_spider.pipelines.DoubanMovieSpiderPipeline': 300,
+#    'douban_book_spider.pipelines.DoubanMovieSpiderPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

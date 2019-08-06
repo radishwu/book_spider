@@ -8,12 +8,14 @@
 import scrapy
 
 
-class DoubanMovieSpiderItem(scrapy.Item):
+class DoubanBookSpiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
 
     # 书名
     name = scrapy.Field()
+    # 封面
+    cover = scrapy.Field()
     # 原作名
     original_name = scrapy.Field()
     # 作者
@@ -29,6 +31,6 @@ class DoubanMovieSpiderItem(scrapy.Item):
     # ISBN
     isbn = scrapy.Field()
     # 内容简介
-    desc = scrapy.Field()
+    intro = scrapy.Field()
     # 评分
     score = scrapy.Field()
