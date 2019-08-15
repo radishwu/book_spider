@@ -1,7 +1,9 @@
 #-*-coding:utf-8-*-
+import scrapy
 from scrapy import Request
 from scrapy.spiders import Spider
 from douban_book_spider.items import DoubanBookSpiderItem
+from scrapy_splash import SplashRequest
 import sys
 
 reload(sys)
@@ -9,7 +11,7 @@ sys.setdefaultencoding('utf8')
 
 
 class DoubanBookTop250Spider(Spider):
-    name = 'douban_book_top250'
+    name = 'douban_book'
     headers = {
         'User-Agent':
         'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36',
@@ -27,11 +29,12 @@ class DoubanBookTop250Spider(Spider):
     }
 
     def start_requests(self):
-        url = 'https://book.douban.com/top250?icn=index-book250-all'
-        yield Request(url, headers=self.headers)
+        url = 'https://book.douban.com/subject_search?search_text=9787213093302'
+        yield SplashRequest(url, self.parse, endpoint='render.html', args={'wait': 0.5}, headers=self.headers)
+        # yield Request(url, headers=self.headers)
 
     def parse(self, response):
-        booksUrl = response.xpath('//td/a[@class="nbg"]/@href').extract()
+        booksUrl = response.xpath('//div[@class="item-root"]/a[@class="cover-link"]/@href').extract()
         for url in booksUrl:
             yield Request(url,
                           callback=self.parse_detail,
